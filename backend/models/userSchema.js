@@ -1,13 +1,13 @@
 const { DataTypes } = require("sequelize");
-const { sequelize } = require("../database/db");
+const { sequelize, connection } = require("../database/db");
 
-const Users = sequelize.define("users", {
+const Users = sequelize.define("persons", {
     name: {
         type: DataTypes.STRING,
         allowNull: false,
     },
     userId: {
-        type: DataTypes.INTERGER,
+        type: DataTypes.INTEGER,
         allowNull: false,
     },
 });
@@ -20,3 +20,5 @@ const Users = sequelize.define("users", {
         console.log("Error syncing the Users model: ", error.message);
     }
 })();
+
+module.exports = Users;
